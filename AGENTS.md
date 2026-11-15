@@ -28,3 +28,5 @@ use the editor.
   own key and store it in Secrets.
 - **Secrets.** Lovable manages them. Do not put secret values in the repo.
 <!-- LOVABLE:END -->
+
+- Backend calls live only in src/services/studioApi.ts, configured via VITE_STUDIO_* env vars — the API contract is not agreed, so never hard-code endpoints elsewhere or fake results.

@@ -1,23 +1,34 @@
 import { createFileRoute } from "@tanstack/react-router";
+import { Navbar } from "@/components/studio/Navbar";
+import { HeroSection } from "@/components/studio/HeroSection";
+import { StudioShowcase } from "@/components/studio/StudioShowcase";
+import { UploadWorkspace } from "@/components/studio/UploadWorkspace";
+import { TechnologySection } from "@/components/studio/TechnologySection";
+import { Footer } from "@/components/studio/Footer";
 
-// The home route ships no og:image, so serve-time hosting can inject the
-// project's social preview (explicit og:image or latest screenshot).
 export const Route = createFileRoute("/")({
+  head: () => ({
+    meta: [
+      { title: "AI Automotive Studio — Precision in every frame" },
+      { name: "description", content: "Your vehicle, reimagined in its own studio. Upload a photo or video and place it in a premium LED studio." },
+      { property: "og:title", content: "AI Automotive Studio — Precision in every frame" },
+      { property: "og:description", content: "Your vehicle, reimagined in its own studio." },
+      { property: "og:type", content: "website" },
+      { name: "twitter:card", content: "summary_large_image" },
+    ],
+  }),
   component: Index,
 });
 
-// IMPORTANT: Replace this placeholder. See ./README.md for routing conventions.
 function Index() {
   return (
-    <div
-      className="flex min-h-screen items-center justify-center"
-      style={{ backgroundColor: "#fcfbf8" }}
-    >
-      <img
-        data-lovable-blank-page-placeholder="REMOVE_THIS"
-        src="https://cdn.gpteng.co/blank-app-v1.svg"
-        alt="Your app will live here!"
-      />
-    </div>
+    <main className="bg-background text-foreground">
+      <Navbar />
+      <HeroSection />
+      <StudioShowcase />
+      <UploadWorkspace />
+      <TechnologySection />
+      <Footer />
+    </main>
   );
 }
