@@ -75,7 +75,7 @@ export async function processMedia(file: File, kind: MediaKind, signal?: AbortSi
   body.append("file", file);
   let res: Response;
   try {
-    res = await fetch(`${BASE}${kind === "image" ? IMAGE_PATH : VIDEO_PATH}`, { method: "POST", body, signal });
+    res = await fetch(`${BASE}${kind === "image" ? IMAGE_PATH : VIDEO_PATH}`, { method: "POST", body, signal: signal ?? null });
   } catch (e) {
     if ((e as Error).name === "AbortError") throw e;
     throw new StudioApiError("Could not reach the processing backend. Check your connection and try again.", "network");
