@@ -32,9 +32,9 @@ export class StudioApiError extends Error {
   }
 }
 
-const BASE = (import.meta.env.VITE_STUDIO_API_URL as string | undefined)?.replace(/\/$/, "");
-const IMAGE_PATH = (import.meta.env.VITE_STUDIO_IMAGE_ENDPOINT as string | undefined) ?? "/process/image";
-const VIDEO_PATH = (import.meta.env.VITE_STUDIO_VIDEO_ENDPOINT as string | undefined) ?? "/process/video";
+const BASE = (import.meta.env["VITE_STUDIO_API_URL"] as string | undefined)?.replace(/\/$/, "");
+const IMAGE_PATH = (import.meta.env["VITE_STUDIO_IMAGE_ENDPOINT"] as string | undefined) ?? "/process/image";
+const VIDEO_PATH = (import.meta.env["VITE_STUDIO_VIDEO_ENDPOINT"] as string | undefined) ?? "/process/video";
 
 export const isBackendConfigured = Boolean(BASE);
 
