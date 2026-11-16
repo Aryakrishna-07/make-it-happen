@@ -73,7 +73,7 @@
   --color-ghost-type: var(--ghost-type);
   --font-display: "Urbanist", ui-sans-serif, sans-serif;
   --font-sans: "Manrope", ui-sans-serif, sans-serif;
-  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+  --font-mono: "Manrope", ui-sans-serif, sans-serif;
 }
 
 :root {
@@ -89,7 +89,7 @@
   --secondary: oklch(0.17 0.003 180);       /* #111313 */
   --secondary-foreground: oklch(0.955 0.006 106);
   --muted: oklch(0.17 0.003 180);
-  --muted-foreground: oklch(0.61 0.006 190); /* #858989 */
+  --muted-foreground: oklch(0.67 0.004 190);
   --accent: oklch(0.21 0.003 180);
   --accent-foreground: oklch(0.955 0.006 106);
   --destructive: oklch(0.68 0.16 28);
@@ -126,7 +126,7 @@
 }
 
 @layer base {
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; scroll-padding-top: 100px; }
   body { font-family: var(--font-sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
   ::selection { background: var(--primary); color: var(--primary-foreground); }
 }
@@ -141,20 +141,30 @@
 @utility label-mono {
   font-family: var(--font-mono);
   font-size: 0.68rem;
-  letter-spacing: 0.14em;
+  letter-spacing: 0;
   text-transform: uppercase;
 }
 
 @utility display-xl {
   font-family: var(--font-display);
-  font-weight: 600;
-  letter-spacing: -0.045em;
-  line-height: 0.9;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 1.05;
   text-transform: uppercase;
 }
 
 @utility fade-veil {
   background: linear-gradient(to bottom, transparent 40%, var(--background));
+}
+
+.hero-heading { line-height: 1.03; }
+.hero-photograph { max-height: 48svh; }
+@media (min-width: 768px) and (max-height: 900px) {
+  .hero-heading { font-size: 56px; }
+  .hero-photograph { max-height: 40svh; }
+}
+@media (max-width: 767px) {
+  .hero-photograph { max-height: none; }
 }
 
 @keyframes reveal-up {
@@ -179,5 +189,6 @@
 @utility animate-blink { animation: blink 1.2s steps(2) infinite; }
 
 @media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; }
 }

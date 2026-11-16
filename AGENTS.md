@@ -30,3 +30,4 @@ use the editor.
 <!-- LOVABLE:END -->
 
 - Backend calls live only in src/services/studioApi.ts, configured via VITE_STUDIO_* env vars — the API contract is not agreed, so never hard-code endpoints elsewhere or fake results.
+- Studio controls use the shared Button studio variants; presentation tokens and responsive photographic sizing live in src/styles.css to keep all workstation states visually consistent.

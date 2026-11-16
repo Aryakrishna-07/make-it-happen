@@ -1,4 +1,4 @@
-import { Logo, Tag } from "./Primitives";
+import { Logo } from "./Primitives";
 
 export function Footer() {
   return (
@@ -16,7 +16,7 @@ export function Footer() {
           </nav>
         </div>
         <div className="mt-14 flex flex-col justify-between gap-3 border-t border-border pt-6 sm:flex-row">
-          <Tag>Built for automotive visualization</Tag>
+          <span className="text-sm text-muted-foreground">Automotive photography, reimagined.</span>
           <span className="label-mono text-muted-foreground">© {new Date().getFullYear()} AI Automotive Studio</span>
         </div>
       </div>

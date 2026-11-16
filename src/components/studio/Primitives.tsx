@@ -6,7 +6,7 @@ export function Logo({ className = "" }: { className?: string }) {
       <svg viewBox="0 0 32 32" className="size-7" aria-hidden>
         <rect x="0.75" y="0.75" width="30.5" height="30.5" fill="none" className="stroke-border" strokeWidth="1.5" />
         <path d="M6 25 16 6l10 19" fill="none" className="stroke-foreground" strokeWidth="2.2" />
-        <path d="M10.5 19h11" className="stroke-primary" strokeWidth="2.2" />
+        <path d="M10.5 19h11" className="stroke-foreground" strokeWidth="2.2" />
       </svg>
       <span className="label-mono leading-tight text-foreground">AI Automotive<br />Studio</span>
     </span>
@@ -22,15 +22,14 @@ export function Crosshair({ className = "" }: { className?: string }) {
 }
 
 export function Tag({ children, className = "" }: { children: ReactNode; className?: string }) {
-  return <span className={`label-mono text-muted-foreground ${className}`}>[ {children} ]</span>;
+  return <span className={`label-mono text-muted-foreground ${className}`}>{children}</span>;
 }
 
 export function SectionHeader({ index, name }: { index: string; name: string }) {
   return (
-    <div className="flex items-center gap-4 border-b border-border pb-4">
-      <span className="label-mono text-primary">{index}</span>
-      <span className="h-px flex-1 bg-border" />
+    <div className="flex items-center justify-between border-t border-border pt-5">
       <span className="label-mono text-muted-foreground">{name}</span>
+      <span className="label-mono text-muted-foreground">{index}</span>
     </div>
   );
 }
